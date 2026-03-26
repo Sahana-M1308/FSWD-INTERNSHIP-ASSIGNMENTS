@@ -1,0 +1,36 @@
+                                       Assignment-7(Use arrays & objects to store student marks and calculate averages)
+
+Student.js
+
+// Array to store students
+let students = [
+    {
+        name: "Ali",
+        marks: [85, 90, 78]
+    },
+    {
+        name: "Sara",
+        marks: [88, 76, 95]
+    },
+    {
+        name: "John",
+        marks: [70, 80, 65]
+    }
+];
+
+// Function to calculate average
+function calculateAverage(marks) {
+    let total = 0;
+    for (let i = 0; i < marks.length; i++) {
+        total += marks[i];
+    }
+    return total / marks.length;
+}
+
+// Display student averages
+for (let i = 0; i < students.length; i++) {
+    let average = calculateAverage(students[i].marks);
+    console.log("Student:", students[i].name);
+    console.log("Average Marks:", average);
+    console.log("----------------------");
+}

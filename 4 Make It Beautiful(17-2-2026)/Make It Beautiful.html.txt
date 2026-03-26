@@ -1,0 +1,121 @@
+                                                                    Assignment-4(Style previously created webpage using colors, fonts, borders, and spacing)
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Beautiful Website</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 50%;
+            border: 4px solid #3498db;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #1abc9c;
+        }
+
+        .contact {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>My Personal Profile</h1>
+
+        <img src="https://picsum.photos/300" alt="My Profile Picture" width="150">
+
+        <h2>About Me</h2>
+        <p>
+            Hello! My name is Sahana M. I am learning web development 
+            and this is my beautifully styled website using HTML and CSS.
+        </p>
+
+        <h2>My Hobbies</h2>
+        <ul>
+            <li>Reading Books</li>
+            <li>Coding</li>
+            <li>Pencil sketch</li>
+            <li>Traveling</li>
+        </ul>
+
+        <h2>My Skills</h2>
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript (Beginner)</li>
+        </ol>
+
+        <h2>My Favorite Website</h2>
+        <p>
+            Visit 
+            <a href="https://www.google.com" target="_blank">Google</a> 
+            to explore the web.
+        </p>
+
+        <div class="contact">
+            <h2>Contact Me</h2>
+            <p>Email: sahanam.22ise@cambridge.edu.in</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

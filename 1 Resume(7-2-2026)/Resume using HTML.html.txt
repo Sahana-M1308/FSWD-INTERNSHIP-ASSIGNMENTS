@@ -1,0 +1,100 @@
+                                                  Assignment -1(Create a basic HTML web page of your Resume/CV)
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sahana M - Resume</title>
+</head>
+<body>
+
+<header>
+    <h1>SAHANA M</h1>
+</header>
+
+<p>Hosakote, Bengaluru</p>
+<p>
+    Phone: +91-6363839242 <br>
+    Email: <a href="mailto:msahana1308@gmail.com">msahana1308@gmail.com</a> <br>
+    LinkedIn: 
+    <a href="https://www.linkedin.com/in/sahana-m-992035316">
+        https://www.linkedin.com/in/sahana-m-992035316
+    </a>
+</p>
+
+<header>
+    <h2>EDUCATION</h2>
+</header>
+
+<p>
+    <b>Cambridge Institute of Technology</b> (2022 - 2026) <br>
+    B.E in Information Science and Engineering <br>
+    CGPA: 9.01 <br>
+    Bengaluru, India
+</p>
+
+<p>
+    <b>Sri Maruthi PU College</b> (2019 - 2021) <br>
+    XII Percentage: 91.33 <br>
+    Bengaluru, India
+</p>
+
+<p>
+    <b>Om Shri Public School</b> (2018 - 2019) <br>
+    SSLC Percentage: 88.64
+</p>
+
+<header>
+    <h2>COURSEWORK</h2>
+</header>
+
+<p>C</p>
+<p>DSA</p>
+<p>C++</p>
+<p>Java</p>
+<p>Software Engineering</p>
+
+<header>
+    <h2>PROJECTS</h2>
+</header>
+
+<p>
+    <b>Login App Development using Android Studio (2023)</b> <br>
+    Developed an Android application and used Android Studio performance profilers to track memory and CPU usage, identify memory leaks, optimize graphics performance, and analyze network requests.
+</p>
+
+<p>
+    <b>Image Classification using CNN (2024)</b> <br>
+    Trained a Convolutional Neural Network (CNN) model to classify images into predefined categories by automatically extracting relevant features from image data.
+</p>
+
+<p>
+    <b>Next Gen Authentication Tokens Using Blockchain Technology (2025)</b> <br>
+    Designed a decentralized authentication system using blockchain to issue and verify secure tokens. Improved security by eliminating single points of failure and enhanced transparency using immutable ledger-based token tracking.
+</p>
+
+<header>
+    <h2>SKILLS</h2>
+</header>
+
+<p><b>Technical Skills:</b></p>
+<p>Programming in Java</p>
+<p>Digital Office Tools (e-Office)</p>
+<p>Foundational Java Concepts</p>
+
+<p><b>Soft Skills:</b></p>
+<p>Strong Communication</p>
+<p>Adaptability and Quick Learning</p>
+<p>Problem Solving</p>
+
+<header>
+    <h2>CERTIFICATIONS</h2>
+</header>
+
+<p>E-Office :- MICE</p>
+<p>Programming in Java :- IIT Kharagpur</p>
+<p>Java Foundation Certification :- Infosys Springboard</p>
+<p>Privacy and Security in Online Social Media :- VTU Centre for Online Education</p>
+
+</body>
+</html>
