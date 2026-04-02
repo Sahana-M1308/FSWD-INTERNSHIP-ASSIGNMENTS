@@ -1,0 +1,44 @@
+                                                           Assignment-18(Build Express routes for a bookstore (books, authors))
+
+server.js
+
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+// Simple data
+let books = ["Harry Potter", "The Hobbit"];
+let authors = ["J.K. Rowling", "Tolkien"];
+
+// Home route
+app.get("/", (req, res) => {
+    res.send("Welcome to Bookstore API");
+});
+
+// Get all books
+app.get("/books", (req, res) => {
+    res.json(books);
+});
+
+// Add a book
+app.post("/books", (req, res) => {
+    books.push(req.body.name);
+    res.send("Book added");
+});
+
+// Get all authors
+app.get("/authors", (req, res) => {
+    res.json(authors);
+});
+
+// Add an author
+app.post("/authors", (req, res) => {
+    authors.push(req.body.name);
+    res.send("Author added");
+});
+
+// Start server
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
