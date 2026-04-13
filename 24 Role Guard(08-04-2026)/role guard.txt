@@ -1,0 +1,96 @@
+                                                             Assignment-24( Add admin/user roles and restrict certain routes)
+
+user.js
+
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: { type: String, unique: true },
+    password: String,
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user'
+    }
+});
+
+module.exports = mongoose.model('User', userSchema);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------routes.js
+
+router.post('/signup', async (req, res) => {
+    try {
+        const { name, email, password, role } = req.body;
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        const user = new User({
+            name,
+            email,
+            password: hashedPassword,
+            role: role || 'user'   // default user
+        });
+
+        await user.save();
+        res.json({ message: "User registered" });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------authroutes.js
+
+const token = jwt.sign(
+    { id: user._id, role: user.role },   // include role
+    process.env.JWT_SECRET,
+    { expiresIn: "1h" }
+);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------rolemiddleware.js
+
+module.exports = function (...allowedRoles) {
+    return (req, res, next) => {
+        if (!allowedRoles.includes(req.user.role)) {
+            return res.status(403).json({ message: "Access Forbidden" });
+        }
+        next();
+    };
+};
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------authmiddleware.js
+
+const jwt = require('jsonwebtoken');
+
+module.exports = function (req, res, next) {
+    const token = req.header('Authorization');
+
+    if (!token) return res.status(401).json({ message: "Access Denied" });
+
+    try {
+        const verified = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = verified; // contains id + role
+        next();
+    } catch (err) {
+        res.status(400).json({ message: "Invalid Token" });
+    }
+};
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------server.js
+
+const roleMiddleware = require('./middleware/roleMiddleware');
+const authMiddleware = require('./middleware/authMiddleware');
+
+// 👤 USER route (user + admin allowed)
+app.get('/api/user', authMiddleware, roleMiddleware('user', 'admin'), (req, res) => {
+    res.json({ message: "User Dashboard" });
+});
+
+// 👑 ADMIN ONLY route
+app.get('/api/admin', authMiddleware, roleMiddleware('admin'), (req, res) => {
+    res.json({ message: "Admin Dashboard" });
+});
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
